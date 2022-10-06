@@ -15,7 +15,7 @@ class Test_list_all_units(unittest.TestCase):
         print("Testing listing all units from input file")
         self.assertEqual(units,  ['Alpha', 'Bravo', 'SAT1', 'Charlie', 'Delta', 'Zulu', 'SAT2'])
 
-    def test_list_nets(self):
+    def test_list_all_satellites(self):
         """
         Test that we can get the list of all satellites from input file
         """
@@ -23,9 +23,9 @@ class Test_list_all_units(unittest.TestCase):
         lines = read_input_file(inputfile)
         array_data = put_input_file_data_in_array_of_arrays(lines)
         units = list_all_units(array_data)
-        nets = list_all_satellites(units)
+        sats = list_all_satellites(units)
         print("Testing listing all satellites from input file")
-        self.assertEqual(nets,  ['SAT1', 'SAT2'])
+        self.assertEqual(sats,  ['SAT1', 'SAT2'])
 
 
     def test_maximum_number_calculation(self):
@@ -36,8 +36,8 @@ class Test_list_all_units(unittest.TestCase):
         lines = read_input_file(inputfile)
         array_data = put_input_file_data_in_array_of_arrays(lines)
         units = list_all_units(array_data)
-        nets = list_all_satellites(units)
-        maximum_number = get_maximum_number(nets,array_data)
+        sats = list_all_satellites(units)
+        maximum_number = get_maximum_number(sats,array_data)
 
         print("Testing if the  maximum number of units that can communicate a message with each other is well calculated")
         self.assertEqual(maximum_number, 3)
